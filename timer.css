@@ -1,0 +1,34 @@
+#clock {
+  margin: 10px 10px 10px 10px;
+  font-size: larger;
+}
+
+#remainder {
+  margin: 10px;
+  font-size: larger;
+}
+
+#remainderBar {
+  margin: 10px 3%;
+  width: 94%;
+  height: 5px;
+  background-color: rgb(131, 131, 131);
+}
+
+#shrinkBar {
+  height: 100%;
+  background-color: rgb(62, 173, 68);
+}
+
+#checkOptions {
+  display: block;
+}
+
+.col {
+  display: inline-block;
+  width: 45%;
+}
+
+#minutes {
+  width: 100%;
+}

@@ -1,0 +1,16 @@
+{
+	"appName": "timer app",
+	"description": "alt1 test timer app",
+	"appUrl": "./index.html",
+	"configUrl": "./appconfig.json",
+	"iconUrl": "",
+	"defaultWidth": 130,
+	"defaultHeight": 300,
+	"minWidth": 130,
+	"minHeight": 250,
+	"maxWidth": 250,
+	"maxHeight": 300,
+	"requestHandlers": [ ],
+	"activators": [	],
+	"permissions": "pixel,overlay,gamestate"
+}
