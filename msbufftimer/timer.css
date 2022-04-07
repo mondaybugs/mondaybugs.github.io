@@ -1,0 +1,26 @@
+html {
+  background-color: rgb(47, 58, 58);
+}
+
+p {
+  color: white;
+}
+
+.inline {
+  display: inline-block;
+  margin: 5px;
+  text-align: center;
+}
+
+.timer-label {
+  font-size: 32;
+  text-align: center;
+}
+
+#timers, #active-timers {
+  text-align: center;
+}
+
+img {
+  cursor: pointer;
+}
