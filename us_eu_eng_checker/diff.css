@@ -1,0 +1,16 @@
+html {
+  background-color: rgb(130, 166, 212);
+}
+
+p {
+  color: white;
+}
+
+.info-text {
+  font-size: 24;
+}
+
+#input {
+  width: 100%;
+  height: 40%;
+}

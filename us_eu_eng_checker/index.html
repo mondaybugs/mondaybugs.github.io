@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="diff.css">
+  </head>
+
+  <body id="app">
+    <div class="container">
+      <p class="info-text">Simple checker for American English to British English using the list from: <a href="http://www.tysto.com/uk-us-spelling-list.html">http://www.tysto.com/uk-us-spelling-list.html</a></p>
+      <p class="info-text">May take several seconds to check long strings of text.</p>
+      <p class="info-text">Provides a diff to look for incorrect context cases such as: check(examine) > cheque(money). Another case is practice(noun) vs practise(verb) in British English.</p>
+      <textarea id="input"></textarea>
+      <button onmousedown="check()">Check</button>
+      <p id="diff-text">Awaiting check...</p>
+    </div>
+  </body>
+
+  <script src="diff.min.js"></script>
+  <script src="index.js"></script>
+</html>
