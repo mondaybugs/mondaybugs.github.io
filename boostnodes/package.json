@@ -1,0 +1,14 @@
+{
+  "name": "boostnodes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "filenames-to-json": "^1.0.0"
+  }
+}

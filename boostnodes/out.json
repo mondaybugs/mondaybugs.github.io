@@ -1,0 +1,811 @@
+{
+    "files": [
+        "node.png",
+        "nodes.png",
+        "trinode.png",
+        "trinode_mask.png"
+    ],
+    "class-portrait": {
+        "files": [
+            "adele.png",
+            "angelic-buster.png",
+            "aran.png",
+            "arch-mage-fire-poison.png",
+            "arch-mage-ice-lightning.png",
+            "ark.png",
+            "battle-mage.png",
+            "beast-tamer.png",
+            "bishop.png",
+            "blaster.png",
+            "blaze-wizard.png",
+            "bowmaster.png",
+            "buccaneer.png",
+            "cadena.png",
+            "cannoneer.png",
+            "corsair.png",
+            "dark-knight.png",
+            "dawn-warrior.png",
+            "demon-avenger.png",
+            "demon-slayer.png",
+            "dual-blade.png",
+            "evan.png",
+            "hayato.png",
+            "hero.png",
+            "hoyoung.png",
+            "illium.png",
+            "jett.png",
+            "kain.png",
+            "kaiser.png",
+            "kanna.png",
+            "kinesis.png",
+            "lara.png",
+            "luminous.png",
+            "marksman.png",
+            "mechanic.png",
+            "mercedes.png",
+            "mihile.png",
+            "night-lord.png",
+            "night-walker.png",
+            "paladin.png",
+            "pathfinder.png",
+            "phantom.png",
+            "shade.png",
+            "shadower.png",
+            "thunder-breaker.png",
+            "wild-hunter.png",
+            "wind-archer.png",
+            "xenon.png",
+            "zero.png"
+        ]
+    },
+    "classes": {
+        "files": [],
+        "adele": {
+            "files": [
+                "aether-bloom.png",
+                "aether-forge.png",
+                "blade-of-will.png",
+                "cleave.png",
+                "eviscerate.png",
+                "hunting-decree.png",
+                "impale.png",
+                "magic-dispatch.png",
+                "reign-of-destruction.png",
+                "skewering.png"
+            ]
+        },
+        "angelic-buster": {
+            "files": [
+                "celestial-roar.png",
+                "finale-ribbon.png",
+                "heavenly-crash.png",
+                "lovely-sting.png",
+                "pink-pummel.png",
+                "shining-star-burst.png",
+                "soul-buster.png",
+                "soul-resonance.png",
+                "soul-seeker.png",
+                "star-bubble.png",
+                "supreme-supernova.png",
+                "trinity.png"
+            ]
+        },
+        "aran": {
+            "files": [
+                "beyond-blade.png",
+                "final-attack.png",
+                "final-blow.png",
+                "final-charge.png",
+                "final-toss.png",
+                "gathering-hook.png",
+                "hunters-prey.png",
+                "judgment-draw.png",
+                "mahas-domain.png",
+                "rolling-spin.png",
+                "smash-swing.png",
+                "smash-wave.png",
+                "storm-of-fear.png"
+            ]
+        },
+        "arch-mage-fire-poison": {
+            "files": [
+                "explosion.png",
+                "flame-haze.png",
+                "flame-orb.png",
+                "flame-sweep.png",
+                "ifrit.png",
+                "ignite.png",
+                "inferno-aura.png",
+                "megiddo-flame.png",
+                "meteor-shower.png",
+                "mist-eruption.png",
+                "poison-breath.png",
+                "poison-mist.png",
+                "teleport-mastery.png"
+            ]
+        },
+        "arch-mage-ice-lightning": {
+            "files": [
+                "blizzard.png",
+                "chain-lightning.png",
+                "chilling-step.png",
+                "cold-beam.png",
+                "elquines.png",
+                "frost-ward.png",
+                "frozen-orb.png",
+                "ice-strike.png",
+                "lightning-orb.png",
+                "thunder-bolt.png",
+                "thunder-sphere.png"
+            ]
+        },
+        "ark": {
+            "files": [
+                "abyssal-charge-drive.png",
+                "basic-charge-drive.png",
+                "endless-agony.png",
+                "gust-charge-drive.png",
+                "impending-death.png",
+                "ominous-nightmare.png",
+                "scarlet-charge-drive.png",
+                "unstoppable-impulse.png"
+            ]
+        },
+        "battle-mage": {
+            "files": [
+                "battle-burst.png",
+                "condemnation.png",
+                "dark-chain.png",
+                "dark-genesis.png",
+                "dark-shock.png",
+                "finishing-blow.png",
+                "quad-blow.png",
+                "quintuple-blow.png",
+                "sweeping-staff.png",
+                "triple-blow.png"
+            ]
+        },
+        "beast-tamer": {
+            "files": [
+                "deep-breath.png",
+                "fire-kitty.png",
+                "fishy-slap.png",
+                "formation-attack.png",
+                "friend-launcher.png",
+                "group-bear-blaster.png",
+                "leopards-paw.png",
+                "lil-fort.png",
+                "macho-dance.png",
+                "party-time.png",
+                "paw-swipe.png",
+                "really-deep-breath.png",
+                "table-flip.png",
+                "three-point-pounce.png",
+                "thunder-dash.png",
+                "tornado-flight.png"
+            ]
+        },
+        "bishop": {
+            "files": [
+                "angel-ray.png",
+                "bahamut.png",
+                "big-bang.png",
+                "genesis.png",
+                "heal.png",
+                "heavens-door.png",
+                "holy-arrow.png",
+                "shining-ray.png"
+            ]
+        },
+        "blaster": {
+            "files": [
+                "ballistic-hurricane.png",
+                "bunker-buster-explosion.png",
+                "detonate.png",
+                "double-blast.png",
+                "hammer-smash.png",
+                "hyper-magnum-punch.png",
+                "magnum-launch.png",
+                "magnum-punch.png",
+                "muzzle-flash.png",
+                "revolving-blast.png",
+                "revolving-cannon.png",
+                "shotgun-punch.png"
+            ]
+        },
+        "blaze-wizard": {
+            "files": [
+                "blazing-extinction.png",
+                "cataclysm.png",
+                "cinder-maelstrom.png",
+                "dragon-blaze.png",
+                "flame-bite.png",
+                "flame-tempest.png",
+                "flame-vortex.png",
+                "ignition.png",
+                "orbital-flame.png",
+                "towering-inferno.png"
+            ]
+        },
+        "bowmaster": {
+            "files": [
+                "arrow-blaster.png",
+                "arrow-blow.png",
+                "arrow-stream.png",
+                "covering-fire.png",
+                "final-attack.png",
+                "gritty-gust.png",
+                "hurricane.png",
+                "phoenix.png",
+                "quiver-cartridge.png",
+                "wind-arrow.png"
+            ]
+        },
+        "buccaneer": {
+            "files": [
+                "corkscrew-blow.png",
+                "hook-bomber.png",
+                "nautilus-strike.png",
+                "octopunch.png",
+                "sea-serpent-burst.png",
+                "sea-serpents-rage.png",
+                "static-thumper.png",
+                "turning-kick.png"
+            ]
+        },
+        "cadena": {
+            "files": [
+                "chain-arts-beatdown.png",
+                "chain-arts-reign-of-chains.png",
+                "summon-brick.png",
+                "summon-daggers.png",
+                "summon-scimitar.png",
+                "summon-shotgun.png",
+                "summon-spiked-bat.png",
+                "veteran-shadowdealer.png"
+            ]
+        },
+        "cannoneer": {
+            "files": [
+                "anchors-aweigh.png",
+                "barrel-bomb.png",
+                "barrel-roulette.png",
+                "blast-back.png",
+                "cannon-barrage.png",
+                "cannon-bazooka.png",
+                "cannon-blaster.png",
+                "cannon-jump.png",
+                "cannon-spike.png",
+                "cannon-strike.png",
+                "monkey-fury.png",
+                "monkey-militia.png",
+                "nautilus-strike.png",
+                "rolling-rainbow.png",
+                "scatter-shot.png"
+            ]
+        },
+        "corsair": {
+            "files": [
+                "blackboot-bill.png",
+                "blunderbuster.png",
+                "brain-scrambler.png",
+                "broadside.png",
+                "eight-legs-easton.png",
+                "majestic-presence.png",
+                "nautilus-strike.png",
+                "parrotargetting.png",
+                "rapid-blast.png",
+                "rapid-fire.png",
+                "recoil-shot.png",
+                "scurvy-summons.png",
+                "siege-bomber.png",
+                "ugly-bomb.png"
+            ]
+        },
+        "dark-knight": {
+            "files": [
+                "dark-impale.png",
+                "evil-eye.png",
+                "final-attack.png",
+                "gungnirs-descent.png",
+                "la-mancha-spear.png",
+                "nightshade-explosion.png",
+                "rush.png",
+                "spear-sweep.png"
+            ]
+        },
+        "dawn-warrior": {
+            "files": [
+                "crescent-divide.png",
+                "equinox-slash.png",
+                "flicker.png",
+                "impaling-rays.png",
+                "moon-cross.png",
+                "moon-dancer.png",
+                "moon-shadow.png",
+                "styx-crossing.png",
+                "trace-cut.png",
+                "triple-slash.png"
+            ]
+        },
+        "demon-avenger": {
+            "files": [
+                "bat-swarm.png",
+                "blood-prison.png",
+                "exceed-demon-strike.png",
+                "exceed-double-slash.png",
+                "exceed-execution.png",
+                "exceed-lunar-slash.png",
+                "infernal-exceed.png",
+                "nether-shield.png",
+                "nether-slice.png",
+                "shield-charge.png",
+                "thousand-swords.png",
+                "vitality-veil.png"
+            ]
+        },
+        "demon-slayer": {
+            "files": [
+                "binding-darkness.png",
+                "carrion-breath.png",
+                "cerberus-chomp.png",
+                "chaos-lock.png",
+                "dark-metamorphosis.png",
+                "dark-thrust.png",
+                "demon-cry.png",
+                "demon-impact.png",
+                "demon-lash.png",
+                "grim-scythe.png",
+                "infernal-concussion.png",
+                "judgment.png",
+                "raven-storm.png",
+                "soul-eater.png",
+                "vortex-of-doom.png"
+            ]
+        },
+        "dual-blade": {
+            "files": [
+                "asuras-anger.png",
+                "bandit-slash.png",
+                "blade-ascension.png",
+                "blade-clone.png",
+                "blade-fury.png",
+                "bloody-storm.png",
+                "chains-of-hell.png",
+                "fatal-blow.png",
+                "final-cut.png",
+                "flashbang.png",
+                "flying-assaulter.png",
+                "phantom-blow.png",
+                "slash-storm.png",
+                "sudden-raid.png",
+                "tornado-spin.png"
+            ]
+        },
+        "evan": {
+            "files": [
+                "dark-fog.png",
+                "dragon-breath.png",
+                "dragon-dive.png",
+                "dragon-flash.png",
+                "dragon-master.png",
+                "dragon-spark.png",
+                "earth-circle.png",
+                "magic-debris.png",
+                "mana-burst-i.png",
+                "summon-onyx-dragon.png",
+                "thunder-circle.png",
+                "wind-circle.png"
+            ]
+        },
+        "hayato": {
+            "files": [
+                "blade-flash.png",
+                "dankuusen.png",
+                "falcon-dive.png",
+                "falcons-honor.png",
+                "fuu-blade-flash.png",
+                "fuu-sanrenzan.png",
+                "hitokiri-hundred-strike.png",
+                "hitokiri-strike.png",
+                "jin-blade-flash.png",
+                "jin-sanrenzan.png",
+                "rai-blade-flash.png",
+                "rai-sanrenzan.png",
+                "rising-slash.png",
+                "sanrenzan.png",
+                "shinsoku.png",
+                "shouryuusen.png",
+                "sudden-strike.png",
+                "summer-rain.png",
+                "surging-blade.png",
+                "sweeping-sword.png",
+                "tornado-blade.png",
+                "vapor-blade.png",
+                "whirlwind-cut.png"
+            ]
+        },
+        "hero": {
+            "files": [
+                "beam-blade.png",
+                "brandish.png",
+                "cry-valhalla.png",
+                "final-attack.png",
+                "flash-blade.png",
+                "intrepid-slash.png",
+                "puncture.png",
+                "raging-blow.png",
+                "rising-rage.png",
+                "rush.png"
+            ]
+        },
+        "hoyoung": {
+            "files": [
+                "earth-ground-shattering-wave.png",
+                "heaven-iron-fan-gale.png",
+                "humanity-as-you-will-fan.png",
+                "scroll-butterfly-dream.png",
+                "scroll-degeneration.png",
+                "scroll-star-vortex.png",
+                "talisman-clone.png",
+                "talisman-evil-sealing-gourd.png",
+                "talisman-seeking-ghost-flame.png"
+            ]
+        },
+        "illium": {
+            "files": [
+                "deus.png",
+                "longinus-spear.png",
+                "longinus-zone.png",
+                "machina.png",
+                "radiant-javelin-ii.png",
+                "reaction-destruction-ii.png",
+                "umbral-brand-iii.png",
+                "vortex-wings.png"
+            ]
+        },
+        "jett": {
+            "files": [
+                "backup-beatdown.png",
+                "blaster-barrage.png",
+                "cosmic-upheaval.png",
+                "falling-stars.png",
+                "planet-buster.png",
+                "singularity-shock.png",
+                "starforce-salvo.png",
+                "starline-one.png",
+                "starline-three.png",
+                "starline-two.png",
+                "stellar-impact.png",
+                "vortex-cross.png"
+            ]
+        },
+        "kain": {
+            "files": [
+                "deaths-blessing-node.png",
+                "dragon-fang.png",
+                "execute-chain-sickle.png",
+                "execute-phantom-blade.png",
+                "falling-dust.png",
+                "scattering-shot.png",
+                "shaft-break.png",
+                "strike-arrow.png"
+            ]
+        },
+        "kaiser": {
+            "files": [
+                "ancestral-prominence.png",
+                "blade-burst.png",
+                "dragon-barrage.png",
+                "dragon-slash.png",
+                "flame-surge.png",
+                "gigas-wave.png",
+                "impact-wave.png",
+                "inferno-breath.png",
+                "piercing-blaze.png",
+                "pressure-chain.png",
+                "stone-dragon.png",
+                "tempest-blades.png",
+                "wing-beat.png"
+            ]
+        },
+        "kanna": {
+            "files": [
+                "binding-tempest.png",
+                "exorcists-charm.png",
+                "falling-sakura.png",
+                "ghost-yaksha-boss.png",
+                "kishin-shoukan.png",
+                "nightghost-guide.png",
+                "nine-tailed-fury.png",
+                "orochi-unbound.png",
+                "shikigami-charm.png",
+                "shikigami-doppelganger.png",
+                "shikigami-haunting-4.png",
+                "tengu-strike.png",
+                "vanquishers-charm.png",
+                "veritable-pandemonium.png",
+                "yosuzume.png"
+            ]
+        },
+        "kinesis": {
+            "files": [
+                "kinetic-combo.png",
+                "kinetic-crash.png",
+                "kinetic-piledriver.png",
+                "mental-shock.png",
+                "mental-tempest.png",
+                "mind-break.png",
+                "psychic-drain.png",
+                "psychic-force.png",
+                "psychic-grab.png",
+                "ultimate-bpm.png",
+                "ultimate-deep-impact.png",
+                "ultimate-metal-press.png",
+                "ultimate-trainwreck.png"
+            ]
+        },
+        "lara": {
+            "files": [
+                "dragon-vein-absorption.png",
+                "dragon-vein-eruption.png",
+                "dragon-vein-traces.png",
+                "essence-sprinkle.png",
+                "mountain-kid.png",
+                "mountain-seeds.png",
+                "vine-coil.png",
+                "wakeup-call.png"
+            ]
+        },
+        "luminous": {
+            "files": [
+                "abyssal-drop.png",
+                "apocalypse.png",
+                "armageddon.png",
+                "death-scythe.png",
+                "ender.png",
+                "flash-shower.png",
+                "moonlight-spear.png",
+                "morning-star.png",
+                "pressure-void.png",
+                "ray-of-redemption.png",
+                "reflection.png",
+                "spectral-light.png",
+                "sylvan-lance.png"
+            ]
+        },
+        "marksman": {
+            "files": [
+                "arrow-blow.png",
+                "bolt-burst.png",
+                "covering-fire.png",
+                "final-attack.png",
+                "high-speed-shot.png",
+                "piercing-arrow.png",
+                "snipe.png"
+            ]
+        },
+        "mechanic": {
+            "files": [
+                "bots-n-tots.png",
+                "distortion-bomb.png",
+                "gatling-gun.png",
+                "giant-robot-sg-88.png",
+                "heavy-gatling-gun.png",
+                "heavy-salvo-plus.png",
+                "heavy-salvo.png",
+                "homing-beacon.png",
+                "me-07-drillhands.png",
+                "punch-launcher.png",
+                "robo-launcher-rm7.png",
+                "rock-n-shock.png",
+                "rocket-booster.png",
+                "support-unit-h-ex.png"
+            ]
+        },
+        "mercedes": {
+            "files": [
+                "elemental-knights.png",
+                "ishtars-ring.png",
+                "leap-tornado.png",
+                "lightning-edge.png",
+                "rising-rush.png",
+                "spikes-royale.png",
+                "stunning-strikes.png",
+                "swift-dual-shot.png",
+                "unicorn-spike.png",
+                "wrath-of-enlil.png"
+            ]
+        },
+        "mihile": {
+            "files": [
+                "charging-light.png",
+                "final-attack.png",
+                "four-point-assault.png",
+                "radiant-cross.png",
+                "radiant-driver.png",
+                "royal-guard.png",
+                "soul-blade.png",
+                "soul-driver.png",
+                "trinity-attack.png"
+            ]
+        },
+        "night-lord": {
+            "files": [
+                "assassins-mark.png",
+                "dark-flare.png",
+                "death-star.png",
+                "gust-charm.png",
+                "quad-star.png",
+                "showdown.png",
+                "shuriken-burst.png",
+                "shuriken-challenge.png",
+                "sudden-raid.png",
+                "triple-throw.png"
+            ]
+        },
+        "night-walker": {
+            "files": [
+                "dark-omen.png",
+                "dominion.png",
+                "lucky-seven.png",
+                "quad-star.png",
+                "quintuple-star.png",
+                "shadow-bat.png",
+                "shadow-spark.png",
+                "shadow-stitch.png",
+                "triple-throw.png"
+            ]
+        },
+        "paladin": {
+            "files": [
+                "blast.png",
+                "close-combat.png",
+                "divine-charge.png",
+                "divine-judgment.png",
+                "divine-swing.png",
+                "final-attack.png",
+                "heavens-hammer.png",
+                "rush.png",
+                "smite-shield.png"
+            ]
+        },
+        "pathfinder": {
+            "files": [
+                "ancient-astra.png",
+                "cardinal-burst.png",
+                "cardinal-deluge.png",
+                "cardinal-torrent.png",
+                "combo-assault.png",
+                "glyph-of-impalement.png",
+                "shadow-raven.png",
+                "swarm-shot.png",
+                "triple-impact.png"
+            ]
+        },
+        "phantom": {
+            "files": [
+                "blason.png",
+                "calling-card.png",
+                "carte-blanche.png",
+                "double-entendre.png",
+                "impeccable-memory-i.png",
+                "impeccable-memory-ii.png",
+                "impeccable-memory-iii.png",
+                "impeccable-memory-iv.png",
+                "mille-aiguilles.png",
+                "mille-cartes.png",
+                "penombre.png",
+                "rapier-wit.png",
+                "rose-carte-finale.png",
+                "tempest.png"
+            ]
+        },
+        "shade": {
+            "files": [
+                "blade-imp-downward-slash.png",
+                "blade-imp-forward-slash.png",
+                "blade-imp-spin-slash.png",
+                "bomb-punch.png",
+                "death-mark.png",
+                "flash-fist.png",
+                "fox-spirits.png",
+                "ground-pound.png",
+                "shockwave-punch.png",
+                "soul-splitter.png",
+                "spirit-claw.png",
+                "spirit-frenzy.png",
+                "spirit-incarnation.png",
+                "spirit-trap.png",
+                "summon-other-spirit.png"
+            ]
+        },
+        "shadower": {
+            "files": [
+                "assassinate.png",
+                "cruel-stab.png",
+                "dark-flare.png",
+                "meso-explosion.png",
+                "midnight-carnival.png",
+                "phase-dash.png",
+                "savage-blow.png",
+                "shadow-veil.png",
+                "sudden-raid.png"
+            ]
+        },
+        "thunder-breaker": {
+            "files": [
+                "annihilate.png",
+                "ascension.png",
+                "deep-rising.png",
+                "flash.png",
+                "gale.png",
+                "lightning-punch.png",
+                "shark-sweep.png",
+                "thunder.png",
+                "thunderbolt.png",
+                "tidal-crash.png"
+            ]
+        },
+        "wild-hunter": {
+            "files": [
+                "dash-n-slash.png",
+                "double-shot.png",
+                "drill-salvo.png",
+                "exploding-arrows.png",
+                "final-attack.png",
+                "hunting-assistant-unit.png",
+                "sonic-roar.png",
+                "summon-jaguar.png",
+                "swipe.png",
+                "wild-arrow-blast.png"
+            ]
+        },
+        "wind-archer": {
+            "files": [
+                "breeze-arrow.png",
+                "fairy-spiral.png",
+                "gust-shot.png",
+                "monsoon.png",
+                "pinpoint-pierce.png",
+                "sentient-arrow.png",
+                "song-of-heaven.png",
+                "spiraling-vortex.png",
+                "storm-bringer.png",
+                "trifling-wind-i.png"
+            ]
+        },
+        "xenon": {
+            "files": [
+                "aegis-system.png",
+                "beam-dance.png",
+                "beam-spline.png",
+                "combat-switch-explosion.png",
+                "diagonal-chase.png",
+                "entangling-lash.png",
+                "gravity-pillar.png",
+                "hypogram-field-penetrate.png",
+                "ion-thrust.png",
+                "mecha-purge-snipe.png",
+                "orbital-cataclysm.png",
+                "pinpoint-salvo.png",
+                "quicksilver-flash.png",
+                "triangulation.png"
+            ]
+        },
+        "zero": {
+            "files": [
+                "flash-assault.png",
+                "moon-strike.png",
+                "piercing-thrust.png",
+                "rolling-assault.png",
+                "rolling-cross.png",
+                "shadow-rain.png",
+                "spin-cutter.png",
+                "storm-break.png",
+                "wind-cutter.png",
+                "wind-striker.png"
+            ]
+        }
+    }
+}

@@ -1,0 +1,95 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: rgb(47, 58, 58);
+}
+
+p {
+  color: white;
+}
+
+img {
+  margin: 5px;
+}
+
+img:hover {
+  filter: brightness(85%); 
+}
+
+#jobs img {
+  margin: 0;
+  cursor: pointer;
+}
+
+#boostnodes img {
+  cursor: pointer;
+  padding: 3px;
+}
+
+#boostclass {
+  text-transform: capitalize;
+}
+
+h2 {
+  color: white;
+}
+
+#nodes {
+  margin: 10px;
+}
+
+#trinodes > div {
+  border: solid silver;
+}
+
+#trios, #trinodes > div {
+  margin: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+#trios > div, #trinodes > div > div {
+  display: flex;
+  align-items: center;
+  margin: 5px;
+  border: solid palegreen;
+  padding: 3px;
+  flex-grow: 1;
+}
+
+#trios h2, #trinodes > div h2 {
+  margin: 5px;
+}
+
+#trios p, #trinodes > div p {
+  font-size: 1.2rem;
+  margin: 5px;
+  text-transform: capitalize;
+}
+
+#search {
+  margin: 10px;
+  padding: 10px;
+  cursor: pointer;
+  color: white;
+  background-color: #4CAF50;
+  font-size: 1rem;
+}
+
+#slots {
+  font-size: 1.2rem;
+  width: 3rem;
+}
+
+a {
+  color: aquamarine;
+}
+
+footer {
+  margin: 5px;
+}
