@@ -378,7 +378,7 @@ const search = () => {
     }
   }
 
-  if (selected.length === 1) return tri.innerHTML = `<h2>Select at least 2 skills to boost.</h2>`;
+  if (selected.length < 2) return tri.innerHTML = `<h2>Select at least 2 skills to boost.</h2>`;
 
   const s = [...selected, ...selected];
   
