@@ -34,7 +34,7 @@ maskimg.onload = async() => {
 maskimg.src = './assets/trinode_mask.png';
 
 // ===== Add boost node information =====
-const add_image = async(data, node_count) => {
+const add_image = async(data, node_count, shifts) => {
   const c = document.createElement('canvas');
   const d = document.createElement('div');
   const ctx = c.getContext('2d', { willReadFrequently: true });
@@ -63,24 +63,28 @@ const add_image = async(data, node_count) => {
 
         for (let y = 0; y < c.height; y++) {
           for (let x = 0; x < c.width; x++) {
-            const npx = ctx.getImageData(x, y, 1, 1);
-            const spx = sctx.getImageData(x + 3, y + 3, 1, 1);
-
-            if (!colour_match(npx.data, spx.data)) continue;
-
             const mpx = maskc.getImageData(x + 1, y + 1, 1, 1);
 
             if (colour_match(mpx.data, [255, 0, 0])) {
+              const npx = ctx.getImageData(x, y, 1, 1);
+              const spx = sctx.getImageData(x + 3 - shifts[1], y + 3 + shifts[2], 1, 1);
+              if (!colour_match(npx.data, spx.data)) continue;
               slot1++;
               continue;
             }
 
             if (colour_match(mpx.data, [0, 255, 0])) {
+              const npx = ctx.getImageData(x, y, 1, 1);
+              const spx = sctx.getImageData(x + 3 + shifts[0] - shifts[1], y + 3, 1, 1);
+              if (!colour_match(npx.data, spx.data)) continue;
               slot2++;
               continue;
             }
 
             if (colour_match(mpx.data, [0, 0, 255])) {
+              const npx = ctx.getImageData(x, y, 1, 1);
+              const spx = sctx.getImageData(x + 3 + shifts[0], y + 3 + shifts[2], 1, 1);
+              if (!colour_match(npx.data, spx.data)) continue;
               slot3++;
               continue;
             }
@@ -155,7 +159,11 @@ const search_nodes = async (ctx) => {
       }
 
       if (found) {
-        let success = await add_image(ctx.getImageData(x + 1, y + 1, 26, 26), node_count);
+        const left_shifted = colour_match(ctx.getImageData(x - 3, y + 1, 1, 1).data, [0, 0, 0]);
+        const right_shifted = colour_match(ctx.getImageData(x + 30, y + 1, 1, 1).data, [0, 0, 0]);
+        const top_shifted = colour_match(ctx.getImageData(x + 1, y - 3, 1, 1).data, [0, 0, 0]);
+
+        let success = await add_image(ctx.getImageData(x + 1, y + 1, 26, 26), node_count, [left_shifted ? 1 : 0, right_shifted ? 1 : 0, top_shifted ? 1 : 0]);
         // Node is not locked
         if (success) {
           ctx.fillText(node_count, x + 14, y + 24);
