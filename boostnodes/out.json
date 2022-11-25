@@ -1,8 +1,7 @@
 {
     "files": [
-        "node.png",
-        "nodes.png",
-        "trinode.png",
+        "a.png",
+        "b.png",
         "trinode_mask.png"
     ],
     "class-portrait": {
@@ -153,6 +152,11 @@
         },
         "battle-mage": {
             "files": [
+                "0_old_dark-chain.png",
+                "0_old_dark-shock.png",
+                "0_old_quad-blow.png",
+                "0_old_quintuple-blow.png",
+                "0_old_triple-blow.png",
                 "battle-burst.png",
                 "condemnation.png",
                 "dark-chain.png",
@@ -205,11 +209,11 @@
                 "double-blast.png",
                 "hammer-smash.png",
                 "hyper-magnum-punch.png",
-                "magnum-launch.png",
                 "magnum-punch.png",
                 "muzzle-flash.png",
                 "revolving-blast.png",
                 "revolving-cannon.png",
+                "rocket-rush.png",
                 "shotgun-punch.png"
             ]
         },
@@ -218,17 +222,18 @@
                 "blazing-extinction.png",
                 "cataclysm.png",
                 "cinder-maelstrom.png",
-                "dragon-blaze.png",
                 "flame-bite.png",
                 "flame-tempest.png",
                 "flame-vortex.png",
-                "ignition.png",
+                "orbital-explosion.png",
                 "orbital-flame.png",
+                "phoenix-drive.png",
                 "towering-inferno.png"
             ]
         },
         "bowmaster": {
             "files": [
+                "0_old_hurricane.png",
                 "arrow-blaster.png",
                 "arrow-blow.png",
                 "arrow-stream.png",
@@ -316,16 +321,14 @@
         },
         "dawn-warrior": {
             "files": [
-                "crescent-divide.png",
+                "blazing-assault.png",
+                "bluster-flicker.png",
+                "cosmic-burst.png",
+                "cosmic-mattter.png",
+                "cosmic-shower.png",
                 "equinox-slash.png",
-                "flicker.png",
                 "impaling-rays.png",
-                "moon-cross.png",
-                "moon-dancer.png",
-                "moon-shadow.png",
-                "styx-crossing.png",
-                "trace-cut.png",
-                "triple-slash.png"
+                "solar-slash.png"
             ]
         },
         "demon-avenger": {
@@ -622,12 +625,13 @@
                 "charging-light.png",
                 "final-attack.png",
                 "four-point-assault.png",
+                "install-shield.png",
                 "radiant-cross.png",
                 "radiant-driver.png",
                 "royal-guard.png",
-                "soul-blade.png",
+                "shining-pierce.png",
                 "soul-driver.png",
-                "trinity-attack.png"
+                "soul-release.png"
             ]
         },
         "night-lord": {
@@ -807,5 +811,21 @@
                 "wind-striker.png"
             ]
         }
+    },
+    "demo": {
+        "files": [
+            "nodes1.png",
+            "nodes10.png",
+            "nodes11.png",
+            "nodes2.png",
+            "nodes3.png",
+            "nodes4.png",
+            "nodes5.png",
+            "nodes6.png",
+            "nodes7.png",
+            "nodes8.png",
+            "nodes9.png",
+            "setup.png"
+        ]
     }
 }
