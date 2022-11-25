@@ -425,4 +425,3 @@ const search = () => {
     j.appendChild(img);
   }
 })();
-// Nice line count
