@@ -1,52 +1,7 @@
-* {
-  box-sizing: border-box;
-}
-
 html {
   background-color: rgb(47, 58, 58);
 }
 
-p {
-  color: white;
-}
-
-.col {
-  float: left;
-  width: 50%;
-  padding: 10px;
-}
-
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
-
 h3 {
   color: white;
-}
-
-a {
-  color: aquamarine;
-}
-
-#F23 > img {
-  width: 90%;
-  height: auto;
-}
-
-#video_container {
-  overflow: hidden;
-}
-
-#video {
-  display: none;
-}
-
-#F39-sub {
-  display: none;
-}
-
-#F39-prev {
-  display: none;
 }
