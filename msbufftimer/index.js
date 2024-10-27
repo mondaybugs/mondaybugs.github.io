@@ -4,7 +4,7 @@
   // Preset Timer
 
   const timerData = {
-    legion_wealth_10m: { duration: 6, icon: "assets/legion_wealth.webp" },
+    legion_wealth_10m: { duration: 600, icon: "assets/legion_wealth.webp" },
     legion_wealth_20m: { duration: 1200, icon: "assets/legion_wealth.webp" },
     legion_wealth_30m: { duration: 1800, icon: "assets/legion_wealth.webp" },
     legion_exp_10m: { duration: 600, icon: "assets/legion_exp.webp" },
