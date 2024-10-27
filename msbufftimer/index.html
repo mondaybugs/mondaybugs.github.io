@@ -7,11 +7,37 @@
     <div class="container">
       <p class="timer-label">Active Timers</p>
       <div id="active-timers"></div>
+
       <p class="timer-label">Timers</p>
       <div id="timers"></div>
+
+      <p class="timer-label">Custom Timer</p>
+      <div id="custom">
+        <span>Loop </span>
+        <input type="checkbox" id="customLoop" />
+        <input type="number" value="0" id="customInput" />
+        <button id="customButton">Start</button>
+      </div>
+
+      <p class="timer-label">Alarm</p>
+      <div id="alarm">
+        <span>Loop </span>
+        <input type="checkbox" id="alarmLoop" />
+        <span>xx:</span>
+        <input type="number" value="0" min="0" max="59" id="alarmMin" />
+        <span>m :</span>
+        <input type="number" value="0" min="0" max="59" id="alarmSec" />
+        <span>s</span>
+        <button id="alarmButton">Start</button>
+      </div>
+
+      <p class="timer-label">Volume</p>
+      <div id="volume">
+        <input id="vol" type="range" value="20" min="0" max="100" step="1" />
+      </div>
     </div>
   </body>
 
-  <script src="index.bundle.js"></script>
+  <script src="index.js"></script>
 </html>
     
