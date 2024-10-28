@@ -29,12 +29,12 @@ img {
   cursor: pointer;
 }
 
-#customInput, #alarmMin, #alarmSec, #alarmTooltip {
+#customInput, #alarmMin, #alarmSec, #alarmTooltip, #customTooltip {
   padding: 0.4rem;
   width: 80px;
 }
 
-#alarmTooltip {
+#alarmTooltip, #customTooltip {
   width: 200px;
 }
 
