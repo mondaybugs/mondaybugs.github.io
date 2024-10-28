@@ -69,7 +69,7 @@
 
         activeLabel.innerText = `${remaining}`;
 
-        if (remaining === 0) activeDiv.style.border = '1px solid red';
+        if (remaining === 0) activeDiv.style.border = '2px solid red';
         
         if (remainingAudio <= 0) {
           timerAudio.play();
@@ -107,13 +107,14 @@
     const activeDiv = document.createElement("div");
     activeDiv.className = "inline";
 
-    if (loop) activeDiv.style.border = '1px solid green';
+    if (loop) activeDiv.style.border = '2px solid green';
 
     const activeLabel = document.createElement("p");
     activeLabel.innerText = `${seconds}`;
 
     const activeImage = document.createElement("img");
     activeImage.src = loop ? './assets/block.png' : './assets/block2.png';
+    if (selected >= 0) activeImage.src = icons[selected];
 
     const now = new Date().getTime() / 1000;
     let target = now + seconds;
@@ -126,7 +127,7 @@
 
       activeLabel.innerText = `${remaining}`;
 
-      if (!loop && remaining === 0) activeDiv.style.border = '1px solid red';
+      if (!loop && remaining === 0) activeDiv.style.border = '2px solid red';
       
       if (remainingAudio <= 0) {
         timerAudio.play();
@@ -155,6 +156,13 @@
   const alarmMin = document.getElementById('alarmMin');
   const alarmSec = document.getElementById('alarmSec');
   const alarmLoop = document.getElementById('alarmLoop');
+  const alarmTooltip = document.getElementById('alarmTooltip');
+  const alarmRepeat = document.getElementById('alarmRepeat');
+
+  alarmLoop.onchange = () => {
+    alarmRepeat.disabled = !alarmLoop.checked;
+    if (alarmRepeat.disabled) alarmRepeat.checked = false;
+  };
 
   alarmButton.onclick = () => {
     const targetMin = alarmMin.value;
@@ -189,16 +197,22 @@
     const activeDiv = document.createElement("div");
     activeDiv.className = "inline";
 
-    if (loop) activeDiv.style.border = '1px solid green';
+    if (loop) activeDiv.style.border = '2px solid green';
 
     const activeLabel = document.createElement("p");
     activeLabel.innerText = `${seconds}`;
 
     const activeImage = document.createElement("img");
     activeImage.src = './assets/alarmclock.png';
+    if (selected >= 0) activeImage.src = icons[selected];
+
+    if (alarmTooltip) activeDiv.title = alarmTooltip.value;
 
     let target = now + seconds;
     let audioTarget = now + seconds;
+
+    const repeat = alarmRepeat.checked;
+    let repeating = false;
 
     const timerInterval = setInterval(() => {
       const current = new Date().getTime() / 1000;
@@ -206,23 +220,38 @@
       const remainingAudio = Math.max(Math.round(audioTarget - current), 0);
 
       activeLabel.innerText = `${remaining}`;
-
-      if (!loop && remaining === 0) activeDiv.style.border = '1px solid red';
       
-      if (remainingAudio <= 0) {
-        timerAudio.play();
-        if (loop) {
-            target  = current + 3600;
-            audioTarget = current + 3600;
+      if (remaining === 0) {
+        if (!loop) {
+          activeDiv.style.border = '2px solid red';
         } else {
-            audioTarget = current + audioLoopDelay;
+          target = current + 3600;
+        }
+      }
+
+      if (remainingAudio === 0) {
+        timerAudio.play();
+        if (!loop) {
+          audioTarget = current + audioLoopDelay;
+        } else if (!repeat) {
+          audioTarget = target;
+        } else {
+          repeating = true;
+          activeDiv.style.border = '2px solid red';
+          audioTarget = current + audioLoopDelay;
         }
       }
     }, 1000);
 
     activeImage.onclick = () => {
-      clearInterval(timerInterval);
-      activeDiv.remove();
+      if (repeating) {
+        repeating = false;
+        audioTarget = target;
+        activeDiv.style.border = '2px solid green';
+      } else {
+        clearInterval(timerInterval);
+        activeDiv.remove();
+      }
     };
 
     activeDiv.appendChild(activeImage);
@@ -230,4 +259,74 @@
     activeTimers.appendChild(activeDiv);
   };
 
+  // Icons
+  
+  const icons = [
+    "assets/legion_wealth.webp",
+    "assets/legion_exp.webp",
+    "assets/legion_luck.webp",
+    "assets/exp.webp",
+    "assets/drop.webp",
+    "assets/wap.webp",
+    "assets/swap.png",
+    "assets/scwap.png",
+    "assets/goldpot.png",
+    "assets/hs.png",
+    "assets/dice.png",
+    "assets/vip.png",
+    "assets/mvp.webp",
+    "assets/bossmvp.png",
+    "assets/mugongmvp.png",
+    "assets/ozmvp.png",
+    "assets/selfmvp.png",
+    "assets/paidmvp.png",
+    "assets/mapmvp.png",
+    "assets/mapmugong.png",
+    "assets/threads.webp",
+    "assets/frenzy.png"
+  ];
+
+  let selected = -1;
+
+  const iconsDisplay = document.getElementById('icons');
+  const iconElements = [];
+
+  for (let i = 0; i < icons.length; i++) {
+    const icon = icons[i];
+
+    const iconDiv = document.createElement("div");
+    iconDiv.className = "inline";
+
+    const iconImage = document.createElement("img");
+    iconImage.src = icon;
+
+    iconDiv.onclick = () => {
+      if (selected === i) {
+        iconDiv.style.border = '';
+        selected = -1;
+      } else if (selected === -1) {
+        iconDiv.style.border = '3px solid yellow';
+        selected = i;
+      } else {
+        iconDiv.style.border = '3px solid yellow';
+        iconElements[selected].style.border = '';
+        selected = i;
+      }
+    };
+
+    iconElements.push(iconDiv);
+    iconDiv.appendChild(iconImage);
+    iconsDisplay.appendChild(iconDiv);
+  }
+
+  const iconsLabel = document.getElementById('iconsLabel');
+  iconsLabel.onclick = () => {
+    if (iconsLabel.innerText === 'Icons (-)') {
+      iconsLabel.innerText = 'Icons (+)';
+      iconsDisplay.style.display = 'none';
+    } else {
+      iconsLabel.innerText = 'Icons (-)';
+      iconsDisplay.style.display = '';
+    }
+  };
 })();

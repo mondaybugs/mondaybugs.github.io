@@ -21,7 +21,7 @@ p, span {
   margin-top: 8;
 }
 
-#timers, #active-timers, #custom, #alarm, #volume {
+#timers, #active-timers, #custom, #alarm, #volume, #icons {
   text-align: center;
 }
 
@@ -29,9 +29,13 @@ img {
   cursor: pointer;
 }
 
-#customInput, #alarmMin, #alarmSec {
+#customInput, #alarmMin, #alarmSec, #alarmTooltip {
   padding: 0.4rem;
   width: 80px;
+}
+
+#alarmTooltip {
+  width: 200px;
 }
 
 button {
@@ -57,4 +61,8 @@ button:hover {
   background-color: #2c974b;
   border-color: #1b1f2326;
   transition-duration: 0.1s;
+}
+
+#iconsLabel {
+  cursor: pointer;
 }

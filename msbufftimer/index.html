@@ -13,23 +13,34 @@
 
       <p class="timer-label">Custom Timer</p>
       <div id="custom">
-        <span>Loop </span>
-        <input type="checkbox" id="customLoop" />
         <input type="number" value="0" id="customInput" />
         <button id="customButton">Start</button>
+        <br />
+        <span>Loop </span>
+        <input type="checkbox" id="customLoop" />
       </div>
 
       <p class="timer-label">Alarm</p>
       <div id="alarm">
-        <span>Loop </span>
-        <input type="checkbox" id="alarmLoop" />
         <span>xx:</span>
         <input type="number" value="0" min="0" max="59" id="alarmMin" />
         <span>m :</span>
         <input type="number" value="0" min="0" max="59" id="alarmSec" />
         <span>s</span>
         <button id="alarmButton">Start</button>
+        <br />
+        <span>Tooltip memo</span>
+        <input id="alarmTooltip" type="text" />
+        <br />
+        <span>Loop</span>
+        <input type="checkbox" id="alarmLoop" />
+        <br />
+        <span>Snooze on Click</span>
+        <input type="checkbox" id="alarmRepeat" disabled />
       </div>
+
+      <p class="timer-label" id="iconsLabel">Icons (-)</p>
+      <div id="icons"></div>
 
       <p class="timer-label">Volume</p>
       <div id="volume">
