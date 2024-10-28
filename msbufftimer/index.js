@@ -1,23 +1,35 @@
+const toast = (text) => {
+  Toastify({
+    text,
+    duration: 5000,
+    gravity: "top",
+    position: "left",
+    style: {
+      background: "BlueViolet",
+    }
+  }).showToast();
+};
+
 (() => {
   "use strict";
 
   // Preset Timer
 
   const timerData = {
-    legion_wealth_10m: { duration: 600, icon: "assets/legion_wealth.webp" },
-    legion_wealth_20m: { duration: 1200, icon: "assets/legion_wealth.webp" },
-    legion_wealth_30m: { duration: 1800, icon: "assets/legion_wealth.webp" },
-    legion_exp_10m: { duration: 600, icon: "assets/legion_exp.webp" },
-    legion_exp_20m: { duration: 1200, icon: "assets/legion_exp.webp" },
-    legion_exp_30m: { duration: 1800, icon: "assets/legion_exp.webp" },
-    legion_luck_10m: { duration: 600, icon: "assets/legion_luck.webp" },
-    legion_luck_20m: { duration: 1200, icon: "assets/legion_luck.webp" },
-    legion_luck_30m: { duration: 1800, icon: "assets/legion_luck.webp" },
-    exp_15m: { duration: 900, icon: "assets/exp.webp" },
-    exp_30m: { duration: 1800, icon: "assets/exp.webp" },
-    exp_60m: { duration: 3600, icon: "assets/exp.webp" },
-    wap: { duration: 7200, icon: "assets/wap.webp" },
-    mvp: { duration: 1800, icon: "assets/mvp.webp" },
+    legion_wealth_10m: { duration: 600, title: "Legion Wealth", icon: "assets/legion_wealth.webp" },
+    legion_wealth_20m: { duration: 1200, title: "Legion Wealth", icon: "assets/legion_wealth.webp" },
+    legion_wealth_30m: { duration: 1800, title: "Legion Wealth", icon: "assets/legion_wealth.webp" },
+    legion_exp_10m: { duration: 600, title: "Legion Exp", icon: "assets/legion_exp.webp" },
+    legion_exp_20m: { duration: 1200, title: "Legion Exp", icon: "assets/legion_exp.webp" },
+    legion_exp_30m: { duration: 1800, title: "Legion Exp", icon: "assets/legion_exp.webp" },
+    legion_luck_10m: { duration: 600, title: "Legion Luck", icon: "assets/legion_luck.webp" },
+    legion_luck_20m: { duration: 1200, title: "Legion Luck", icon: "assets/legion_luck.webp" },
+    legion_luck_30m: { duration: 1800, title: "Legion Luck", icon: "assets/legion_luck.webp" },
+    exp_15m: { duration: 900, title: "Exp Coupon", icon: "assets/exp.webp" },
+    exp_30m: { duration: 1800, title: "Exp Coupon", icon: "assets/exp.webp" },
+    exp_60m: { duration: 3600, title: "Exp Coupon", icon: "assets/exp.webp" },
+    wap: { duration: 7200, title: "WAP", icon: "assets/wap.webp" },
+    mvp: { duration: 1800, title: "MVP", icon: "assets/mvp.webp" },
   };
   
   const timerAudio = new Audio("./assets/shatter.mp3");
@@ -51,6 +63,7 @@
 
       const activeDiv = document.createElement("div");
       activeDiv.className = "inline";
+      activeDiv.title = timer.title;
 
       const activeLabel = document.createElement("p");
       activeLabel.innerText = `${seconds}`;
@@ -62,6 +75,8 @@
       const target = now + seconds;
       let audioTarget = now + seconds;
 
+      let done = false;
+
       const timerInterval = setInterval(() => {
         const current = new Date().getTime() / 1000;
         const remaining = Math.max(Math.round(target - current), 0);
@@ -69,8 +84,12 @@
 
         activeLabel.innerText = `${remaining}`;
 
-        if (remaining === 0) activeDiv.style.border = '2px solid red';
-        
+        if (remaining === 0 && !done) {
+          done = true;
+          activeDiv.style.border = '2px solid red';
+          toast(activeDiv.title);
+        }
+
         if (remainingAudio <= 0) {
           timerAudio.play();
           audioTarget = current + audioLoopDelay;
@@ -97,6 +116,7 @@
   const customButton = document.getElementById('customButton');
   const customTime = document.getElementById('customInput');
   const customLoop = document.getElementById('customLoop');
+  const customTooltip = document.getElementById('customTooltip');
 
   customButton.onclick = () => {
     const seconds = +customTime.value;
@@ -116,9 +136,14 @@
     activeImage.src = loop ? './assets/block.png' : './assets/block2.png';
     if (selected >= 0) activeImage.src = icons[selected];
 
+    if (customTooltip) activeDiv.title = customTooltip.value;
+
     const now = new Date().getTime() / 1000;
     let target = now + seconds;
     let audioTarget = now + seconds;
+
+    let done = false;
+    let flash = 0;
 
     const timerInterval = setInterval(() => {
       const current = new Date().getTime() / 1000;
@@ -127,15 +152,26 @@
 
       activeLabel.innerText = `${remaining}`;
 
-      if (!loop && remaining === 0) activeDiv.style.border = '2px solid red';
-      
+      if (!loop && remaining === 0 && !done) {
+        done = true;
+        activeDiv.style.border = '2px solid red';
+        toast(activeDiv.title || "Beep Beep!");
+      }
+
+      if (flash > 0) {
+        if (--flash <= 0) activeDiv.style.border = '2px solid green';
+      }
+
       if (remainingAudio <= 0) {
         timerAudio.play();
         if (loop) {
-            target  = current + seconds;
-            audioTarget = current + seconds;
+          toast(activeDiv.title || "Beep Beep! (Loop)");
+          flash = 5;
+          activeDiv.style.border = '2px solid yellow';
+          target  = current + seconds;
+          audioTarget = current + seconds;
         } else {
-            audioTarget = current + audioLoopDelay;
+          audioTarget = current + audioLoopDelay;
         }
       }
     }, 1000);
@@ -173,21 +209,21 @@
     const future = new Date();
 
     if (targetMin > future.getMinutes()) {
-        future.setSeconds(targetSec);
-        future.setMinutes(targetMin);
+      future.setSeconds(targetSec);
+      future.setMinutes(targetMin);
     } else if (targetMin < future.getMinutes()) {
-        future.setSeconds(targetSec);
-        future.setMinutes(targetMin);
-        future.setHours(future.getHours() + 1);
+      future.setSeconds(targetSec);
+      future.setMinutes(targetMin);
+      future.setHours(future.getHours() + 1);
     } else {
-        if (targetSec > future.getSeconds()) {
-            future.setSeconds(targetSec);
-        } else if (targetSec < future.getSeconds()) {
-            future.setSeconds(targetSec);
-            future.setHours(future.getHours() + 1);
-        } else {
-            future.setHours(future.getHours() + 1);
-        }
+      if (targetSec > future.getSeconds()) {
+        future.setSeconds(targetSec);
+      } else if (targetSec < future.getSeconds()) {
+        future.setSeconds(targetSec);
+        future.setHours(future.getHours() + 1);
+      } else {
+        future.setHours(future.getHours() + 1);
+      }
     }
 
     const now = new Date().getTime() / 1000;
@@ -211,6 +247,9 @@
     let target = now + seconds;
     let audioTarget = now + seconds;
 
+    let done = false;
+    let flash = 0;
+
     const repeat = alarmRepeat.checked;
     let repeating = false;
 
@@ -222,11 +261,17 @@
       activeLabel.innerText = `${remaining}`;
       
       if (remaining === 0) {
-        if (!loop) {
+        if (!loop && !done) {
+          done = true;
           activeDiv.style.border = '2px solid red';
+          toast(activeDiv.title || "Ring Ring!");
         } else {
           target = current + 3600;
         }
+      }
+
+      if (flash > 0) {
+        if (--flash <= 0) activeDiv.style.border = '2px solid green';
       }
 
       if (remainingAudio === 0) {
@@ -235,9 +280,15 @@
           audioTarget = current + audioLoopDelay;
         } else if (!repeat) {
           audioTarget = target;
+          toast(activeDiv.title || "Ring Ring! (Loop)");
+          flash = 5;
+          activeDiv.style.border = '2px solid yellow';
         } else {
-          repeating = true;
-          activeDiv.style.border = '2px solid red';
+          if (!repeating) {
+            toast(activeDiv.title || "Ring Ring! (Click)");
+            repeating = true;
+            activeDiv.style.border = '2px solid red';
+          }
           audioTarget = current + audioLoopDelay;
         }
       }

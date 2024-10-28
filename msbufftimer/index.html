@@ -1,6 +1,7 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="timer.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
   </head>
 
   <body id="app">
@@ -15,6 +16,9 @@
       <div id="custom">
         <input type="number" value="0" id="customInput" />
         <button id="customButton">Start</button>
+        <br />
+        <span>Tooltip memo</span>
+        <input id="customTooltip" type="text" />
         <br />
         <span>Loop </span>
         <input type="checkbox" id="customLoop" />
@@ -49,6 +53,7 @@
     </div>
   </body>
 
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
   <script src="index.js"></script>
 </html>
     
