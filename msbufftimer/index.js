@@ -283,7 +283,9 @@
     "assets/mapmvp.png",
     "assets/mapmugong.png",
     "assets/threads.webp",
-    "assets/frenzy.png"
+    "assets/frenzy.png",
+    "assets/erdafountain.png",
+    "assets/janusdawn.png"
   ];
 
   let selected = -1;
