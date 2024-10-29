@@ -29,13 +29,17 @@ img {
   cursor: pointer;
 }
 
-#customInput, #alarmMin, #alarmSec, #alarmTooltip, #customTooltip {
+#customInput, #alarmMin, #alarmSec, #alarmTooltip, #customTooltip, #soundurl, #soundselect {
   padding: 0.4rem;
   width: 80px;
 }
 
-#alarmTooltip, #customTooltip {
+#alarmTooltip, #customTooltip, #soundurl, #soundselect {
   width: 200px;
+}
+
+#vol {
+  margin-bottom: 15px;
 }
 
 button {

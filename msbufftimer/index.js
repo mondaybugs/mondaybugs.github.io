@@ -10,6 +10,73 @@ const toast = (text) => {
   }).showToast();
 };
 
+// Audio
+
+const savedSound = localStorage.getItem('sound');
+const timerAudio = new Audio(savedSound);
+timerAudio.volume = 0.2;
+
+const audioButton = document.getElementById('soundButton');
+const soundselect = document.getElementById('soundselect');
+
+const soundurl = document.getElementById('soundurl');
+soundurl.value = savedSound;
+
+audioButton.onclick = () => {
+  timerAudio.src = soundurl.value;
+  timerAudio.play()
+    .then(e => localStorage.setItem('sound', soundurl.value))
+    .catch(e => {
+      const options = {
+        text: 'Invalid URL',
+        duration: 1500,
+        gravity: "bottom", position: "center",
+        style: { background: "Maroon" }
+      };
+      Toastify(options).showToast();
+    });
+};
+
+const sounddata = [
+  { "label": "Mute", "url": "" },
+  { "label": "Alarm", "url": "sounds/alarm.mp3" },
+  { "label": "Shatter", "url": "sounds/shatter.mp3" },
+  { "label": "Meet", "url": "sounds/meet.mp3" },
+  { "label": "Metal Pipes", "url": "sounds/metalpipe.mp3" },
+  { "label": "Vine Boom", "url": "sounds/vineboom.mp3" },
+  { "label": "Water Drop", "url": "sounds/waterdrop.mp3" },
+  { "label": "Zoom Join", "url": "sounds/zoom.mp3" },
+  { "label": "Alice in Borderland", "url": "sounds/aib.mp3" },
+  { "label": "Discord", "url": "sounds/discord.mp3" },
+  { "label": "Jeopardy", "url": "sounds/jeopardy.mp3" },
+  { "label": "Ding", "url": "sounds/ding.mp3" },
+  { "label": "Toi", "url": "sounds/toi.mp3" },
+  { "label": "Sus", "url": "sounds/sus.mp3" }
+];
+
+for (let i = 0; i < sounddata.length; i++) {
+  const option = document.createElement("option");
+  const text = document.createTextNode(sounddata[i].label);
+  option.setAttribute("value", i);
+  option.appendChild(text);
+  soundselect.appendChild(option);
+
+  if (savedSound === sounddata[i].url) soundselect.value = i;
+}
+
+if (savedSound === null) {
+  soundselect.value = 1;
+  timerAudio.src = 'sounds/shatter.mp3';
+}
+
+soundselect.onchange = (e) => {
+  const i = e.target.value;
+  const url = sounddata[i].url;
+  timerAudio.src = url;
+  timerAudio.play();
+  localStorage.setItem('sound', url);
+};
+
 (() => {
   "use strict";
 
@@ -32,9 +99,6 @@ const toast = (text) => {
     mvp: { duration: 1800, title: "MVP", icon: "assets/mvp.webp" },
   };
   
-  const timerAudio = new Audio("./assets/shatter.mp3");
-  timerAudio.volume = 0.2;
-
   const volume = document.getElementById('vol');
   volume.oninput = () => timerAudio.volume = volume.value / 100;
 
