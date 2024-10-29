@@ -14,7 +14,23 @@ const toast = (text) => {
 
 const savedSound = localStorage.getItem('sound');
 const timerAudio = new Audio(savedSound);
-timerAudio.volume = 0.2;
+
+const volume = document.getElementById('vol');
+const savedVolume = localStorage.getItem('volume');
+
+if (savedVolume === null) {
+  timerAudio.volume = 0.2;
+  localStorage.setItem('volume', timerAudio.volume);
+} else {
+  timerAudio.volume = savedVolume;
+}
+
+volume.value = timerAudio.volume * 100;
+
+volume.oninput = () => {
+  timerAudio.volume = volume.value / 100;
+  localStorage.setItem('volume', timerAudio.volume);
+}
 
 const audioButton = document.getElementById('soundButton');
 const soundselect = document.getElementById('soundselect');
@@ -98,9 +114,6 @@ soundselect.onchange = (e) => {
     wap: { duration: 7200, title: "WAP", icon: "assets/wap.webp" },
     mvp: { duration: 1800, title: "MVP", icon: "assets/mvp.webp" },
   };
-  
-  const volume = document.getElementById('vol');
-  volume.oninput = () => timerAudio.volume = volume.value / 100;
 
   const audioLoopDelay = 5;
 
