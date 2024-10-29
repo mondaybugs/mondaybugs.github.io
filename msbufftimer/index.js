@@ -39,8 +39,8 @@ audioButton.onclick = () => {
 
 const sounddata = [
   { "label": "Mute", "url": "" },
-  { "label": "Alarm", "url": "sounds/alarm.mp3" },
   { "label": "Shatter", "url": "sounds/shatter.mp3" },
+  { "label": "Alarm", "url": "sounds/alarm.mp3" },
   { "label": "Meet", "url": "sounds/meet.mp3" },
   { "label": "Metal Pipes", "url": "sounds/metalpipe.mp3" },
   { "label": "Vine Boom", "url": "sounds/vineboom.mp3" },
