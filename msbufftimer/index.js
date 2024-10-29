@@ -152,6 +152,9 @@ soundselect.onchange = (e) => {
       const target = now + seconds;
       let audioTarget = now + seconds;
 
+      const audio = new Audio(timerAudio.src);
+      audio.volume = timerAudio.volume;
+
       let done = false;
 
       const timerInterval = setInterval(() => {
@@ -168,7 +171,7 @@ soundselect.onchange = (e) => {
         }
 
         if (remainingAudio <= 0) {
-          timerAudio.play();
+          audio.play();
           audioTarget = current + audioLoopDelay;
         }
       }, 1000);
@@ -219,6 +222,9 @@ soundselect.onchange = (e) => {
     let target = now + seconds;
     let audioTarget = now + seconds;
 
+    const audio = new Audio(timerAudio.src);
+    audio.volume = timerAudio.volume;
+
     let done = false;
     let flash = 0;
 
@@ -240,7 +246,7 @@ soundselect.onchange = (e) => {
       }
 
       if (remainingAudio <= 0) {
-        timerAudio.play();
+        audio.play();
         if (loop) {
           toast(activeDiv.title || "Beep Beep! (Loop)");
           flash = 5;
@@ -324,6 +330,9 @@ soundselect.onchange = (e) => {
     let target = now + seconds;
     let audioTarget = now + seconds;
 
+    const audio = new Audio(timerAudio.src);
+    audio.volume = timerAudio.volume;
+
     let done = false;
     let flash = 0;
 
@@ -352,7 +361,7 @@ soundselect.onchange = (e) => {
       }
 
       if (remainingAudio === 0) {
-        timerAudio.play();
+        audio.play();
         if (!loop) {
           audioTarget = current + audioLoopDelay;
         } else if (!repeat) {
