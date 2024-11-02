@@ -46,7 +46,7 @@ const icons = [
 ];
 
 const timerData = [
-  { "duration":  600, "title": "Legion Wealth", "icon": "assets/legion_wealth.webp" },
+  { "duration":  10, "title": "Legion Wealth", "icon": "assets/legion_wealth.webp" },
   { "duration": 1200, "title": "Legion Wealth", "icon": "assets/legion_wealth.webp" },
   { "duration": 1800, "title": "Legion Wealth", "icon": "assets/legion_wealth.webp" },
   { "duration":  600, "title": "Legion Exp", "icon": "assets/legion_exp.webp" },
@@ -223,7 +223,7 @@ const startTimer = (seconds, icon, title = null, loop = false, repeat = false, s
     populatePreset();
     return;
   }
-  
+
   const activeDiv = document.createElement("div");
   const activeLabel = document.createElement("p");
   const activeImage = document.createElement("img");
@@ -300,7 +300,17 @@ const startTimer = (seconds, icon, title = null, loop = false, repeat = false, s
     }
   }, 1000);
 
-  activeImage.onclick = () => {
+  // Right click to reset timers. Don't reset alarms.
+  activeImage.oncontextmenu = (e) => {
+    e.preventDefault();
+    if (repeat) return;
+    const current = new Date().getTime() / 1000;
+    target = current + seconds;
+    audioTarget = target;
+    activeDiv.style.border = loop ? '2px solid green' : '';
+  };
+
+  activeImage.onclick = (e) => {
     if (repeating) {
       repeating = false;
       audioTarget = target;
@@ -378,7 +388,7 @@ const populatePreset = () => {
           const now = new Date().getTime() / 1000;
           options.seconds = Math.round((future.getTime() / 1000) - now);
         }
-        startTimer(options.seconds, options.icon, options.title, options.loop, options.repeat, options.sound, options.volume, options.hourMinute, options.hourSecond);
+        startTimer(options.seconds, options.icon, options.title, options.loop, options.repeat, options.sound, options.volume);
       } else if (presetRemove.checked) {
         preset.splice(i, 1);
         localStorage.setItem('buffPreset', JSON.stringify(preset));
