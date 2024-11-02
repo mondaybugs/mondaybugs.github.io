@@ -74,11 +74,19 @@ const toast = (text) => {
   }).showToast();
 };
 
+// === Information ===
+
+const infoHover = document.getElementById('info');
+const infoPage = document.getElementById('infoPage');
+
+infoHover.onmouseenter = () => infoPage.style.display = 'block';
+infoHover.onmouseleave = () => infoPage.style.display = '';
+
 // === Audio ===
 
 const volume = document.getElementById('vol');
 const audioButton = document.getElementById('soundButton');
-const soundselect = document.getElementById('soundselect');
+const soundSelect = document.getElementById('soundselect');
 const soundurl = document.getElementById('soundurl');
 
 const savedVolume = localStorage.getItem('volume');
@@ -100,7 +108,7 @@ if (savedVolume === null) {
 
 // Set default sound
 if (savedSound === null) {
-  soundselect.value = 1;
+  soundSelect.value = 1;
   timerAudio.src = 'sounds/shatter.mp3';
 }
 
@@ -132,13 +140,13 @@ for (let i = 0; i < soundData.length; i++) {
   const text = document.createTextNode(soundData[i].label);
   option.setAttribute("value", i);
   option.appendChild(text);
-  soundselect.appendChild(option);
+  soundSelect.appendChild(option);
 
   // Default option if it was saved
-  if (savedSound === soundData[i].url) soundselect.value = i;
+  if (savedSound === soundData[i].url) soundSelect.value = i;
 }
 
-soundselect.onchange = (e) => {
+soundSelect.onchange = (e) => {
   const i = e.target.value;
   const url = soundData[i].url;
   timerAudio.src = url;
@@ -204,9 +212,19 @@ const audioLoopDelay = 5;
 const timersList = document.getElementById("timers");
 const activeTimers = document.getElementById("active-timers");
 
-const startTimer = (seconds, icon, title = null, loop = false, repeat = false, sound = 'sounds/shatter.mp3', volume = 0.2) => {
+const startTimer = (seconds, icon, title = null, loop = false, repeat = false, sound = 'sounds/shatter.mp3', volume = 0.2, hourMinute = null, hourSecond = null) => {
   if (!seconds || seconds <= 0) return;
   if (repeat && !loop) return;
+
+  if (presetSave.checked) {
+    const options = { seconds, icon, title, loop, repeat, sound, volume, hourMinute, hourSecond };
+    preset.push(options);
+    localStorage.setItem('buffPreset', JSON.stringify(preset));
+    populatePreset();
+    return;
+  }
+
+  console.log(loop, repeat)
 
   const activeDiv = document.createElement("div");
   const activeLabel = document.createElement("p");
@@ -244,13 +262,16 @@ const startTimer = (seconds, icon, title = null, loop = false, repeat = false, s
     activeLabel.innerText = `${remaining}`;
 
     if (remaining === 0 && !done) {
-      done = true;
-      
       if (!loop) {
+        done = true;
         activeDiv.style.border = '2px solid red';
         toast(activeDiv.title || "Alarm!");
-      } else {
+      } else if (hourMinute) {
+        // Loop reset to next hour mm:ss
         target = current + 3600;
+      } else {
+        // Loop another x seconds
+        target = current + seconds;
       }
     }
 
@@ -321,15 +342,66 @@ for (let i = 0; i < timerData.length; i++) {
   }
 }
 
+// === Custom Preset ===
+
+const preset = JSON.parse(localStorage.getItem('buffPreset') || "[]");
+const presetUse = document.getElementById('preset-use');
+const presetSave = document.getElementById('preset-save');
+const presetRemove = document.getElementById('preset-remove');
+const presetTimerDiv = document.getElementById('preset-timers');
+
+const populatePreset = () => {
+  presetTimerDiv.innerHTML = '';
+
+  for (let i = 0; i < preset.length; i++) {
+    const options = preset[i];
+  
+    const presetDiv = document.createElement("div");
+    const presetLabel = document.createElement("p");
+    const presetImage = document.createElement("img");
+
+    presetDiv.className = "inline";
+    presetDiv.title = options.title;
+    presetLabel.innerText = `${options.seconds}`;
+    if (options.hourMinute) presetLabel.innerText = `${options.title}`;
+    presetImage.src = options.icon;
+  
+    if (options.loop) presetDiv.style.border = '2px solid green';
+    if (options.repeat) presetDiv.style.border = '2px solid orange';
+  
+    presetDiv.appendChild(presetImage);
+    presetDiv.appendChild(presetLabel);
+    presetTimerDiv.appendChild(presetDiv);
+
+    presetDiv.onclick = () => {
+      if (presetUse.checked) {
+        if (options.hourMinute) {
+          const future = calculateFutureTime(options.hourMinute, options.hourSecond);
+          const now = new Date().getTime() / 1000;
+          options.seconds = Math.round((future.getTime() / 1000) - now);
+        }
+        startTimer(options.seconds, options.icon, options.title, options.loop, options.repeat, options.sound, options.volume);
+      } else if (presetRemove.checked) {
+        preset.splice(i, 1);
+        localStorage.setItem('buffPreset', JSON.stringify(preset));
+        populatePreset();
+      }
+    }
+  }
+}
+
+populatePreset();
+
 // === Custom Timer ===
 
 const customButton = document.getElementById('customButton');
+const customMinute = document.getElementById('customMinute');
 const customTime = document.getElementById('customInput');
 const customLoop = document.getElementById('customLoop');
 const customTooltip = document.getElementById('customTooltip');
 
 customButton.onclick = () => {
-  const seconds = +customTime.value;
+  const seconds = +customTime.value + 60 * +customMinute.value;
   const loop = customLoop.checked;
   const sound = timerAudio.src;
   const volume = timerAudio.volume;
@@ -358,17 +430,7 @@ alarmLoop.onchange = () => {
   if (alarmRepeat.disabled) alarmRepeat.checked = false;
 };
 
-alarmButton.onclick = () => {
-  const loop = alarmLoop.checked;
-  const repeat = alarmRepeat.checked;
-  const sound = timerAudio.src;
-  const volume = timerAudio.volume;
-
-  const targetMin = alarmMin.value;
-  const targetSec = alarmSec.value;
-
-  if (targetMin < 0 || targetMin > 59 || targetSec < 0 || targetSec > 59) return;
-
+const calculateFutureTime = (targetMin, targetSec) => {
   const future = new Date();
 
   // Calculate the next instance of hh:mm:ss
@@ -390,6 +452,22 @@ alarmButton.onclick = () => {
     }
   }
 
+  return future;
+};
+
+alarmButton.onclick = () => {
+  const loop = alarmLoop.checked;
+  const repeat = alarmRepeat.checked;
+  const sound = timerAudio.src;
+  const volume = timerAudio.volume;
+
+  const targetMin = alarmMin.value;
+  const targetSec = alarmSec.value;
+
+  if (targetMin < 0 || targetMin > 59 || targetSec < 0 || targetSec > 59) return;
+
+  const future = calculateFutureTime(targetMin, targetSec);
+
   const now = new Date().getTime() / 1000;
   const seconds = Math.round((future.getTime() / 1000) - now);
 
@@ -399,5 +477,5 @@ alarmButton.onclick = () => {
   if (selectedIcon >= 0) icon = icons[selectedIcon];
   if (alarmTooltip) title = alarmTooltip.value;
 
-  startTimer(seconds, icon, title, loop, repeat, sound, volume);
+  startTimer(seconds, icon, title, loop, repeat, sound, volume, targetMin, targetSec);
 };

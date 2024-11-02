@@ -7,6 +7,22 @@
   </head>
 
   <body id="app">
+    <div id="info" class="tooltip">&#128712</div>
+    <div id="infoPage" class="tooltiptext">
+      Click on a timer to start it. <br>
+      Create custom timers by selecting an icon and sound. <br>
+      Can use links to audio files for additional sounds. <br>
+      Countdown timer starts a timer with a duration of mm minutes ss seconds. <br>
+      Click the timer to remove it. <br>
+      Tooltip memo adds a tooltip when the timer is hovered over and is also the note displayed when the timer is up. <br>
+      Loop will make the timer loop. This is indicated with a green border.
+      Alarm sets a timer for the next mm:ss on the hour. <br>
+      Use for atmospheric exp buffs at set times. <br>
+      Snooze on click makes it so the alarm repeats until the timer is clicked on. <br>
+      This is indicated with an orange border. <br>
+      If Save is checked, custom timers will be added to a preset. <br>
+      Toggle Remove button to remove from preset and Use button to use the timer.
+    </div>
     <div class="container">
       <p class="timer-label">Active Timers</p>
       <div id="active-timers"></div>
@@ -14,9 +30,20 @@
       <p class="timer-label">Timers</p>
       <div id="timers"></div>
 
-      <p class="timer-label">Custom Timer</p>
+      <p class="timer-label">Custom Preset</p>
+      <div id="preset">
+        <div id="preset-timers"></div>
+        <label for="preset-use">Use</label><input type="radio" id="preset-use" name="preset" value="" checked="checked">
+        <label for="preset-save">Save</label><input type="radio" id="preset-save" name="preset" value="">
+        <label for="preset-remove">Remove</label><input type="radio" id="preset-remove" name="preset" value="">
+      </div>
+
+      <p class="timer-label">Countdown Timer</p>
       <div id="custom">
+        <input type="number" value="0" id="customMinute" />
+        <span>m +</span>
         <input type="number" value="0" id="customInput" />
+        <span>s</span>
         <button id="customButton">Start</button>
         <br />
         <span>Tooltip memo</span>

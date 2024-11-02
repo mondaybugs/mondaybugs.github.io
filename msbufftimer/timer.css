@@ -1,8 +1,9 @@
 html {
   background-color: rgb(47, 58, 58);
+  position: relative;
 }
 
-p, span {
+p, span, label {
   color: white;
   margin-top: 5;
   margin-bottom: 5;
@@ -11,7 +12,12 @@ p, span {
 .inline {
   display: inline-block;
   margin: 5px;
+  padding: 3px;
   text-align: center;
+}
+
+.inline p {
+  margin: 0;
 }
 
 .timer-label {
@@ -21,7 +27,7 @@ p, span {
   margin-top: 8;
 }
 
-#timers, #active-timers, #custom, #alarm, #volume, #icons {
+#timers, #active-timers, #custom, #alarm, #volume, #icons, #preset, #preset-timers {
   text-align: center;
 }
 
@@ -29,7 +35,7 @@ img {
   cursor: pointer;
 }
 
-#customInput, #alarmMin, #alarmSec, #alarmTooltip, #customTooltip, #soundurl, #soundselect {
+#customInput, #customMinute, #alarmMin, #alarmSec, #alarmTooltip, #customTooltip, #soundurl, #soundselect {
   padding: 0.4rem;
   width: 80px;
 }
@@ -67,6 +73,36 @@ button:hover {
   transition-duration: 0.1s;
 }
 
-#iconsLabel {
+#iconsLabel, #info {
+  cursor: pointer;
+}
+
+#info {
+  position: absolute;
+  top: -0.2rem;
+  right: 0.7rem;
+  font-size: 3rem;
+  color: lightgray;
+}
+
+#infoPage {
+  display: none;
+}
+
+.tooltiptext {
+  position: fixed;
+  width: 80vw;
+  top: 10vh;
+  left: 10vw;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 1rem;
+  z-index: 1;
+  font-size: 2rem;
+}
+
+#preset-timers div {
   cursor: pointer;
 }
