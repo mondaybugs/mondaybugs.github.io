@@ -46,7 +46,7 @@ const icons = [
 ];
 
 const timerData = [
-  { "duration":  10, "title": "Legion Wealth", "icon": "assets/legion_wealth.webp" },
+  { "duration":  600, "title": "Legion Wealth", "icon": "assets/legion_wealth.webp" },
   { "duration": 1200, "title": "Legion Wealth", "icon": "assets/legion_wealth.webp" },
   { "duration": 1800, "title": "Legion Wealth", "icon": "assets/legion_wealth.webp" },
   { "duration":  600, "title": "Legion Exp", "icon": "assets/legion_exp.webp" },
@@ -388,7 +388,7 @@ const populatePreset = () => {
           const now = new Date().getTime() / 1000;
           options.seconds = Math.round((future.getTime() / 1000) - now);
         }
-        startTimer(options.seconds, options.icon, options.title, options.loop, options.repeat, options.sound, options.volume);
+        startTimer(options.seconds, options.icon, options.title, options.loop, options.repeat, options.sound, options.volume, options.hourMinute, options.hourSecond);
       } else if (presetRemove.checked) {
         preset.splice(i, 1);
         localStorage.setItem('buffPreset', JSON.stringify(preset));
