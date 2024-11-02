@@ -378,7 +378,7 @@ const populatePreset = () => {
           const now = new Date().getTime() / 1000;
           options.seconds = Math.round((future.getTime() / 1000) - now);
         }
-        startTimer(options.seconds, options.icon, options.title, options.loop, options.repeat, options.sound, options.volume);
+        startTimer(options.seconds, options.icon, options.title, options.loop, options.repeat, options.sound, options.volume, options.hourMinute, options.hourSecond);
       } else if (presetRemove.checked) {
         preset.splice(i, 1);
         localStorage.setItem('buffPreset', JSON.stringify(preset));
