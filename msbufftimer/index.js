@@ -223,9 +223,7 @@ const startTimer = (seconds, icon, title = null, loop = false, repeat = false, s
     populatePreset();
     return;
   }
-
-  console.log(loop, repeat)
-
+  
   const activeDiv = document.createElement("div");
   const activeLabel = document.createElement("p");
   const activeImage = document.createElement("img");
