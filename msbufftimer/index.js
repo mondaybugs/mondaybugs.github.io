@@ -303,7 +303,7 @@ const startTimer = (seconds, icon, title = null, loop = false, repeat = false, s
   // Right click to reset timers. Don't reset alarms.
   activeImage.oncontextmenu = (e) => {
     e.preventDefault();
-    if (repeat) return;
+    if (repeat || hourMinute) return;
     const current = new Date().getTime() / 1000;
     target = current + seconds;
     audioTarget = target;
