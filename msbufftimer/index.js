@@ -307,6 +307,7 @@ const startTimer = (seconds, icon, title = null, loop = false, repeat = false, s
     const current = new Date().getTime() / 1000;
     target = current + seconds;
     audioTarget = target;
+    done = false;
     activeDiv.style.border = loop ? '2px solid green' : '';
   };
 
