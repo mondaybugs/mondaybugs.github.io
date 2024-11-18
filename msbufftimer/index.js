@@ -311,6 +311,17 @@ const startTimer = (seconds, icon, title = null, loop = false, repeat = false, s
     activeDiv.style.border = loop ? '2px solid green' : '';
   };
 
+  // Holding ctrl shift or alt while mouse hover reset alarm as well
+  activeImage.onmouseover = (e) => {
+    if (!e.altKey && !e.ctrlKey && !e.shiftKey) return;
+    if (repeat || hourMinute) return;
+    const current = new Date().getTime() / 1000;
+    target = current + seconds;
+    audioTarget = target;
+    done = false;
+    activeDiv.style.border = loop ? '2px solid green' : '';
+  };
+
   activeImage.onclick = (e) => {
     if (repeating) {
       repeating = false;
