@@ -309,9 +309,10 @@ const startTimer = (seconds, icon, title = null, loop = false, repeat = false, s
     audioTarget = target;
     done = false;
     activeDiv.style.border = loop ? '2px solid green' : '';
+    activeLabel.innerText = `${seconds}`;
   };
 
-  // Holding ctrl shift or alt while mouse hover reset alarm as well
+  // Holding ctrl shift or alt while mouse hover resets timer as well
   activeImage.onmouseover = (e) => {
     if (!e.altKey && !e.ctrlKey && !e.shiftKey) return;
     if (repeat || hourMinute) return;
@@ -320,6 +321,7 @@ const startTimer = (seconds, icon, title = null, loop = false, repeat = false, s
     audioTarget = target;
     done = false;
     activeDiv.style.border = loop ? '2px solid green' : '';
+    activeLabel.innerText = `${seconds}`;
   };
 
   activeImage.onclick = (e) => {
